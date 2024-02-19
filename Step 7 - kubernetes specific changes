@@ -1,1 +1,3 @@
-#aws eks --region us-west-2 update-kubeconfig --name ekspoc
+#aws eks --region us-west-2 update-kubeconfig --name ekspoc (here ekspoc is clustername)
+#curl -o eks-console-full-access.yaml https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
+#kubectl apply -f eks-console-full-access.yaml
