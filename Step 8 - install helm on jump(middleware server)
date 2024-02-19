@@ -3,3 +3,7 @@
 #chmod 700 get_helm.sh
 #./get_helm.sh -v v3.5.2
 #Helm version
+
+#helm install <releasename> --create-namespace --namespace <namespace name> </path/to/helmchart/
+
+Example : helm install bpa-rel --create-namespace --namespace bpa-ns /opt/bpa-helm-chart-3.2.0-17/
