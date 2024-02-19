@@ -5,6 +5,6 @@ subnet-1,2,3,4 can be found from step(3,4,5 from https://github.com/nitishpatni8
 
 Example : 
 
-	eksctl create cluster --name ekspoc --region us-west-2 --without-nodegroup --node-type m6i.4xlarge --nodes 3 --nodes-min 3 --nodes-max 3 --ssh-access=true --ssh-public-key=~/.ssh/id_rsa.pub --vpc-private-subnets=subnet-0fcce4735f588beb5,subnet-0873c4065c8123c8c --vpc-public-subnets=subnet-0c005fc195d84c734,subnet-0ebb4431ae4469dc2 --managed
+#eksctl create cluster --name ekspoc --region us-west-2 --without-nodegroup --node-type m6i.4xlarge --nodes 3 --nodes-min 3 --nodes-max 3 --ssh-access=true --ssh-public-key=~/.ssh/id_rsa.pub --vpc-private-subnets=subnet-0fcce4735f588beb5,subnet-0873c4065c8123c8c --vpc-public-subnets=subnet-0c005fc195d84c734,subnet-0ebb4431ae4469dc2 --managed
 
 
