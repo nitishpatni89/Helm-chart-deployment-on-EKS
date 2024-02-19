@@ -5,3 +5,8 @@ Prerequisites :
 	Eksctl : https://github.com/weaveworks/eksctl
 	ECR repository or Local repository
 	One middleware ec2-instance to control and manage the worker nodes
+
+After downloading AWS CLI on your middle server execute
+#aws configure 
+
+after this enter username , secret-key , access-key , region , logformat
