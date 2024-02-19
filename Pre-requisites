@@ -1,12 +1,22 @@
 Prerequisites :
-	Kubectl : https://kubernetes.io/docs/tasks/tools/install-kubectl/
-	AWS Cli : https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
-	Aws iam Authenticator : https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
-	Eksctl : https://github.com/weaveworks/eksctl
-	ECR repository or Local repository
-	One middleware ec2-instance to control and manage the worker nodes
+--> Kubectl : https://kubernetes.io/docs/tasks/tools/install-kubectl/
+--> AWS Cli : https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+--> Aws iam Authenticator : https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+--> Eksctl : https://github.com/weaveworks/eksctl
+--> ECR repository or Local repository
+--> One middleware ec2-instance to control and manage the worker nodes
 
 After downloading AWS CLI on your middle server execute
 #aws configure 
 
 after this enter username , secret-key , access-key , region , logformat
+
+
+NOTE: 
+•	create keypair from aws console and download .pem file and store it on server from where you want to access eks cluster
+•	Extract public key from .pem file
+
+ssh-keygen -y -f bpaekscluster.pem > bpaekscluster.pub
+
+•	Give permission to private key chmod 400 bpaekscluster.pem
+
