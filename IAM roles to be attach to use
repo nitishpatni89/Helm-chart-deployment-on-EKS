@@ -1,0 +1,9 @@
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AutoScalingFullAccess
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AmazonEKSServicePolicy
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+aws iam attach-user-policy --user-name <AWS-USERNAME> --policy-arn arn:aws:iam::aws:policy/AWSServiceRoleForAmazonEKSNodegroup
