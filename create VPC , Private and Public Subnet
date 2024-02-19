@@ -1,0 +1,18 @@
+#aws ec2 create-vpc --cidr-block 172.0.0.0/16 --query Vpc.VpcId --output text #########this step will give the VPC ID which we will use in below steps##### 
+
+#aws ec2 create-subnet --vpc-id vpc-03dcb53bcfa205a07 --cidr-block 172.0.1.0/24 --availability-zone us-west-2c
+#aws ec2 create-subnet --vpc-id vpc-03dcb53bcfa205a07 --cidr-block 172.0.2.0/24 --availability-zone us-west-2b
+#aws ec2 create-subnet --vpc-id vpc-03dcb53bcfa205a07 --cidr-block 172.0.3.0/24 --availability-zone us-west-2c
+#aws ec2 create-subnet --vpc-id vpc-03dcb53bcfa205a07 --cidr-block 172.0.4.0/24 --availability-zone us-west-2b
+
+#aws ec2 create-internet-gateway --query InternetGateway.InternetGatewayId --output text  #######This step will give IGW ID which we will use in below steps#######
+
+
+#aws ec2 attach-internet-gateway --vpc-id vpc-03dcb53bcfa205a07 --internet-gateway-id igw-0d32f7519f690c39a #####In this step we are binding VPC and IGW#########
+#aws ec2 create-route-table --vpc-id vpc-03dcb53bcfa205a07 --query RouteTable.RouteTableId --output text  #####In This step we are creating Route table ID######
+#aws ec2 create-route --route-table-id rtb-0c7ed34375088bbe5 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-0d32f7519f690c39a ####In this we are creating route in the defined route table ID########
+#aws ec2 describe-route-tables --route-table-id rtb-0c7ed34375088bbe5
+#aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-03dcb53bcfa205a07" --query "Subnets[*].{ID:SubnetId,CIDR:CidrBlock}"
+#aws ec2 associate-route-table --subnet-id subnet-0c005fc195d84c734 --route-table-id rtb-0c7ed34375088bbe5 ##########In this step we are attaching public subnet to route table#####
+#aws ec2 associate-route-table --subnet-id subnet-0ebb4431ae4469dc2 --route-table-id rtb-0c7ed34375088bbe5  ##########In this step we are attaching public subnet to route table#####
+#aws ec2 describe-route-tables --route-table-id rtb-0c7ed34375088bbe5
