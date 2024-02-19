@@ -1,0 +1,21 @@
+Assuming we have elasticIP attached to HAproxy Interface and we are creating HAProxy server to our Jump(middleware server) only
+
+#sudo apt-get update
+#sudo apt-get install -y haproxy
+#cat <<EOF | sudo tee /etc/haproxy/haproxy.cfg
+
+frontend kubernetes-frontend
+  bind <HAProxy server ip address>:8000  
+  mode tcp
+  option tcplog
+  default_backend kubernetes-backend
+
+backend kubernetes-backend
+  #option httpchk GET /healthz
+  #http-check expect status 200
+  mode tcp
+  option ssl-hello-chk
+  balance roundrobin
+  server node-1 <eks node 1 ip address>:30101 check fall 3 rise 2
+  server node-1 <eks node 2 ip address>:30101 check fall 3 rise 2
+  server node-1 <eks node 3 ip adddress>:30101 check fall 3 rise 2
