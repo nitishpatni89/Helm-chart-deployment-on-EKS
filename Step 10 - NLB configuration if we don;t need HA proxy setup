@@ -1,0 +1,15 @@
+Go to loadbalancer option in AWS console and select NLB 
+
+--> Create Target group : 
+  	Add all our 3 nodes in target group and create the forward rule, here we are forwarding the request based on port 30101
+
+--> NLB configuration : 
+    o	Give NLB name
+    o	Select scheme as internet facing
+    o	Select IP address type as IPV4
+    o	Select VPC ID
+    o	Do Mapping of NLB with subnet within availability zones
+    o	Add listener and routing like below snapshot
+    o	Click on create load balancer
+
+NOTE : Now we can access our deployed helm chart application from NLB DNS name 
