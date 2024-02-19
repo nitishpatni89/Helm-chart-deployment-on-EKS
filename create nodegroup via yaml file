@@ -1,0 +1,24 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: <eksclustername>
+  region: us-west-2
+vpc:
+  id: "vpc-03dcb53bcfa205a07"
+  subnets:
+    private:
+      us-west-2b:
+          id: "subnet-0fcce4735f588beb5"
+      us-west-2c:
+          id: "subnet-0873c4065c8123c8c"
+    public:
+      us-west-2b:
+          id: "subnet-0ebb4431ae4469dc2"
+      us-west-2c:
+          id: "subnet-0c005fc195d84c734"
+
+
+####to apply nodegroup.yaml execute below command ####
+
+#eksctl create nodegroup --config-file=nodegroup.yaml
