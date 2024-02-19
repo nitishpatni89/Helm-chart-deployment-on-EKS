@@ -1,0 +1,31 @@
+#yum install httpd httpd-tools -y
+#mkdir ~/docker-registry/auth
+#cd ~/docker-registry/auth
+#htpasswd -Bc registry.password admin
+
+enter password : admin when prompted for admin user declared above
+in our case username is admin and password is admin
+
+#vi docker-compose.yaml
+
+version: '3'
+
+services:
+  registry:
+    image: registry:2
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - ./auth:/auth
+      - ./data:/data
+
+#docker-compose up -d
+
+NOTE : docker login to be done on all EKS node and JUMP server node
+
+#docker login https://<registryIPADDRESS>:5000
