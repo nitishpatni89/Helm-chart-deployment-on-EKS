@@ -29,3 +29,15 @@ services:
 NOTE : docker login to be done on all EKS node and JUMP server node
 
 #docker login https://<registryIPADDRESS>:5000
+
+Add following entry in /etc/docker/daemon.json on all nodes
+
+{
+"insecure-registries" : [
+"registryIPADDRESS:5000"
+],
+"debug" : true,
+"experimental" : true
+}
+
+and reload the deamon $systemctl reload-deamon
